@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "titulo": "Arte y filosofía",
+        "autor": "Estanislao Zuleta",
+        "estado": "Bueno",
+        "imagen": "",
+        "categoria": {
+            "nombre": "literatura",
+            "id": "books"
+        },
+        "precio": 30000
+    },
+    {
+        "id": 2,
+        "titulo": "50 miradas a la educación",
+        "autor": "José López Herrerías",
+        "estado": "Bueno",
+        "imagen": "",
+        "categoria": {
+            "nombre": "educacion",
+            "id": "books"
+        },
+        "precio": 20000
+    },
+    {
+        "id": 3,
+        "titulo": "El principito",
+        "autor": "Antoine de Saint-Exupéry",
+        "estado": "Muy bueno",
+        "imagen": "",
+        "categoria": {
+            "nombre": "infantil",
+            "id": "books"
+        },
+        "precio": 25000
+    },
+    {
+        "id": 4,
+        "titulo": "Cien años de soledad",
+        "autor": "Gabriel García Márquez",
+        "estado": "Normal",
+        "imagen": "",
+        "categoria": {
+            "nombre": "literatura",
+            "id": "books"
+        },
+        "precio": 30000
+    }
+]

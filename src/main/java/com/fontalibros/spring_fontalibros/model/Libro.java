@@ -2,7 +2,19 @@ package com.fontalibros.spring_fontalibros.model;
 
 import java.util.Arrays;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+//Anotaciones JPA para el mapeo de las clases
+@Entity
+@Table(name = "productos")
 public class Libro {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
 	private String autor;
@@ -13,6 +25,12 @@ public class Libro {
 	private double precio;
 	private CalidadLibro calidad;
 	private CategoriaLibro categoria;
+	
+	// Creamos un nuevo atributo de tipo usuario y lo relacionamos con la tabla Usuario
+	
+	@ManyToOne
+	private Usuario usuario;
+	
 	
 	// Creacion de enum para calidad del libro
 	public enum CalidadLibro {
@@ -29,7 +47,7 @@ public class Libro {
 		LITERATURA,
 		INFANTIL
 	}
-	
+
 	
 	// Constructor vacio
 	public Libro() {
@@ -39,7 +57,7 @@ public class Libro {
 	
 	// Constructor con todos los campos
 	public Libro(Integer id, String titulo, String autor, String editorial, String descripcion, String isbn,
-			String[] imagenes, double precio) {
+			String[] imagenes, double precio, Usuario usuario) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -49,8 +67,9 @@ public class Libro {
 		this.isbn = isbn;
 		this.imagenes = imagenes;
 		this.precio = precio;
+		this.usuario = usuario;
 	}
-
+	
 	
 	// Generando los Getters y Setters
 	public Integer getId() {
@@ -132,6 +151,17 @@ public class Libro {
 		this.precio = precio;
 	}
 	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+		
 	// Getters para los enums creados en la clase
 	public CalidadLibro getCalidad() {
 		return this.calidad;
@@ -140,6 +170,7 @@ public class Libro {
 	public CategoriaLibro getCategoria() {
 		return this.categoria;
 	}
+	
 
 
 	// Generando el metodo toString

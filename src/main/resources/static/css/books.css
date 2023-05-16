@@ -1,0 +1,83 @@
+/* Contenedores para section libros */
+.books {
+    width: 100%;
+}
+
+/* .list-book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .5em;
+} */
+/* fin Contenedores para section libros */
+
+.book-filter {
+    width: 100%;
+}
+
+.submenu-categories {
+    width: 120px;
+    list-style: none;
+}
+
+.filter-submenu {
+    width: 100%;
+    position: absolute;
+    top: 1.5em;
+    list-style: none;
+    overflow: visible;
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--chalkWhite);
+}
+
+.filter_menu_link {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.filter-container {
+    cursor: pointer;
+    position: relative;
+}
+
+.filter-container:hover .filter-submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.filter_menu_item {
+    padding: .8em 0;
+}
+
+.filter_menu_item:hover {
+    border-bottom: 2px solid var(--lightBlue);
+    transition: all 0.2s;
+}  
+/* fin menu filtro para section libros */
+
+
+@media (min-width: 950px) { 
+    
+/* Contenedores para section libros */
+    .books {
+        width: 100%;
+        display: flex;
+        gap: 2em;
+    }
+
+    .list-book-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: .5em;
+    } 
+/* fin Contenedores para section libros */
+
+/* menu filtro para section libros */
+    .book-filter {
+        width: 20%;
+    } 
+/* fin menu filtro para section libros */
+}

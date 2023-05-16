@@ -1,0 +1,198 @@
+.main {
+    padding: 0 2em;
+    margin-top: 3em;
+    min-height: 100vh;
+}
+
+/* Intro Fontalibros */
+.home {
+    width: 100%;
+    flex-direction: column;
+}
+
+.intro {
+    margin-bottom: 2em;
+}
+
+.intro-img {
+    display: none;
+}
+
+.intro h1 {
+    font-size: var(--h1);
+    font-weight: bold;
+}
+
+.intro p {
+    color: var(--darkgray);
+    margin: 2em 0;
+}
+
+.intro p:last-of-type{
+    margin: 1em 0 2em 0;
+}
+
+/* fin Intro Fontalibros */
+
+/* inicio últimos añadidos */
+.last-added {
+    margin-bottom: 2em;
+}
+
+.last-book-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .5em;
+}
+
+.card {
+    width: 100%;
+    padding: 1em;
+    border-radius: 0.3em;
+    text-align: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+.img-book img {
+    width: 100%;
+    border-radius: 0.2em;
+    object-fit: cover;
+}
+/* fin últimos añadidos */
+
+/* inicio como funciona */
+.how-container {
+    width: 100%;
+}
+
+.howork {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.howork img{
+    display: none;
+}
+
+.howork p {
+    color: var(--darkgray);
+}
+
+.howork_book {
+    margin-bottom: 1em;
+}
+
+.howork_book h3 {
+    margin-bottom: .5em;
+}
+
+.how-list {
+    padding: 0 1em;
+    color: var(--darkgray);
+}
+
+/* estilos para las tablas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+
+  /* Estilos para los botones */
+  .btn-warning {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--lightBlue);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  .btn-danger {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  .publish-container {
+    margin-top: 2em;
+  }
+
+  .publish-tittle {
+    margin: 2em 0;
+  }
+
+/* responsivo */
+@media (min-width: 950px) {
+    .main {
+        padding: 0 5em;
+    }
+
+/* Intro Fontalibros */
+    .intro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .intro-img {
+        display: block;
+        width: 40%;
+    }
+
+    .intro-text {
+        width: 60%;
+    }
+/* Fin intro Fontalibros */
+    
+/* inicio últimos añadidos */
+    .card {
+        width: 20%;
+    }
+/* fin últimos añadidos */
+
+/* inicio como funciona */
+    .how-container {
+        margin-top: 50px;
+    }
+
+    .howork {
+        flex-wrap: nowrap;
+    }
+
+    .howork div {
+        width: 50%;
+    }
+
+    .howork h2 {
+        margin: 3em 0;
+    }
+
+    .howork img{
+        display: block;
+        width: 450px;
+    }
+
+    .howork p {
+        margin-top: 1em;
+        line-height: 2em;
+        color: var(--darkgray);
+    }
+
+    .how-list {
+        line-height: 2em;
+    }
+}
