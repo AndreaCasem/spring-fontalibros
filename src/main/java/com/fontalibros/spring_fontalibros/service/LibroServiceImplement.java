@@ -1,5 +1,6 @@
 package com.fontalibros.spring_fontalibros.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,11 @@ public class LibroServiceImplement implements LibroService {
 	public void delete(Integer id) {
 		libroRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public List<Libro> findAll() {
+		return libroRepository.findAll();
 	}
 
 	

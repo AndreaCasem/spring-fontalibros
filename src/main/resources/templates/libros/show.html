@@ -54,11 +54,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td ></td>
-                    <td ></td>
-                    <td ></td>
-                    <td ></td>
+					<!-- Utilizamos Thymeleaf para mostrar los datos en la tabla, libros es la variable que definimos como atributo en el objeto model de la clase LibroController -->
+                <tr th:each="libro:${libros}">
+                    <td th:text="${libro.titulo}"></td>
+                    <td th:text="${libro.autor}"></td>
+                    <td th:text="${libro.descripcion}"></td>
+                    <td th:text="${libro.precio}"></td>
                     <td><a  class="btn-warning" href="">Editar <i class="fa-solid fa-pencil"></i></a> </td>
                     <td><a  class="btn-danger" href="">Eliminar <i class="fa-solid fa-trash"></i></a> </td>
                 </tr>       

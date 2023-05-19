@@ -1,5 +1,6 @@
 package com.fontalibros.spring_fontalibros.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.fontalibros.spring_fontalibros.model.Libro;
@@ -15,4 +16,5 @@ public interface LibroService {
 	public Optional<Libro> get(Integer id);
 	public void update(Libro libro);
 	public void delete(Integer id);
+	public List<Libro> findAll();
 }

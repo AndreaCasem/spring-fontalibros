@@ -3,6 +3,7 @@ package com.fontalibros.spring_fontalibros.controller;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.fontalibros.spring_fontalibros.model.Libro;
 import com.fontalibros.spring_fontalibros.model.Usuario;
 import com.fontalibros.spring_fontalibros.service.LibroService;
+
+
 
 // Controlador para la gestion de libros
 @Controller
@@ -29,8 +32,10 @@ public class LibroController {
 	
 	
 	// Recibe la solicitud Get a la ruta base /libros y muestra la vista libros/show
+	// Pasamos como parametro un objeto de tipo model que nos va a llevar informacion del backend a la vista
 	@GetMapping("")
-	public String show() {
+	public String show(Model model) {
+		model.addAttribute("libros", libroService.findAll());
 		return "libros/show"; 
 	}
 	
