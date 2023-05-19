@@ -31,14 +31,16 @@
 
 <body>
     <!-- Inicio de header -->
-  		<div th:include="/administrador/template_admin.html::header"></div>
+    	<div th:replace="/administrador/template_admin.html :: header"></div>
+
+  		<!-- <div th:include="/administrador/template_admin.html::header"></div> -->
   		 
     <!-- Fin de header -->
 
     <main class="main" id="main">
        <h3>Fontalibros | <span class="span-word">libros</span></h3>
        <div class="publish-container">
-            <a class="btn btn-primary" href="#"> Publicar libro</a>
+            <a class="btn btn-primary" th:href="@{/libros/crear}"> Publicar libro</a>
             <h4 class="publish-tittle">libros</h4>
             <table class="table">
                 <thead>
@@ -66,7 +68,10 @@
     </main>
 
      <!-- Inicio de footer-->
-     	<div th:include="/administrador/template_admin.html::footer"></div>
+     	<div th:replace="/administrador/template_admin.html :: footer"></div>
+     	
+     	<!-- <div th:include="/administrador/template_admin.html::footer"></div> -->
+
     <!-- Fin de footer--> 
     
     <!-- Scripts -->

@@ -5,6 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.fontalibros.spring_fontalibros.model.Libro;
 
+/*
+ Se define la interfaz LibroRepository que hereda metodos
+ para realizar operaciones CRUD en la entidad Libro y utiliza
+ un identificador de tipo Integer
+*/
 @Repository
 public interface LibroRepository extends JpaRepository<Libro, Integer>{
 

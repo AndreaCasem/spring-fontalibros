@@ -1,6 +1,5 @@
 package com.fontalibros.spring_fontalibros.model;
 
-import java.util.Arrays;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +10,7 @@ import jakarta.persistence.Table;
 
 //Anotaciones JPA para el mapeo de las clases
 @Entity
-@Table(name = "productos")
+@Table(name = "libros")
 public class Libro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +20,10 @@ public class Libro {
 	private String editorial;
 	private String descripcion;
 	private String isbn;
-	private String[] imagenes;
+	private String imagenes;
 	private double precio;
 	private CalidadLibro calidad;
-	private CategoriaLibro categoria;
+	//private CategoriaLibro categoria;
 	
 	// Creamos un nuevo atributo de tipo usuario y lo relacionamos con la tabla Usuario
 	
@@ -42,12 +41,13 @@ public class Libro {
 	}
 	
 	// Creacion de enum para categoria del libro
+	/*
 	public enum CategoriaLibro {
 		EDUCACION,
 		LITERATURA,
 		INFANTIL
 	}
-
+	*/
 	
 	// Constructor vacio
 	public Libro() {
@@ -57,7 +57,7 @@ public class Libro {
 	
 	// Constructor con todos los campos
 	public Libro(Integer id, String titulo, String autor, String editorial, String descripcion, String isbn,
-			String[] imagenes, double precio, Usuario usuario) {
+			String imagenes, double precio, CalidadLibro calidad, Usuario usuario) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -67,15 +67,18 @@ public class Libro {
 		this.isbn = isbn;
 		this.imagenes = imagenes;
 		this.precio = precio;
+		this.calidad = calidad;
+		//this.categoria = categoria;
 		this.usuario = usuario;
 	}
+
 	
 	
 	// Generando los Getters y Setters
 	public Integer getId() {
 		return id;
 	}
-
+	
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -130,14 +133,14 @@ public class Libro {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+	
 
-
-	public String[] getImagenes() {
+	public String getImagenes() {
 		return imagenes;
 	}
 
 
-	public void setImagenes(String[] imagenes) {
+	public void setImagenes(String imagenes) {
 		this.imagenes = imagenes;
 	}
 
@@ -167,18 +170,37 @@ public class Libro {
 		return this.calidad;
 	}
 	
+	/*
 	public CategoriaLibro getCategoria() {
 		return this.categoria;
 	}
-	
-
+	*/
 
 	// Generando el metodo toString
 	@Override
 	public String toString() {
 		return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial
+				+ ", descripcion=" + descripcion + ", isbn=" + isbn + ", precio=" + precio
+				+ ", calidad=" + calidad + ", usuario=" + usuario + "]";
+	}
+
+	/*
+	@Override
+	public String toString() {
+		return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial
+				+ ", descripcion=" + descripcion + ", isbn=" + isbn + ", imagenes=" + imagenes + ", precio=" + precio
+				+ ", calidad=" + calidad + ", categoria=" + categoria + ", usuario=" + usuario + "]";
+	}
+	
+	
+	
+	
+	public String toString() {
+		return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial
 				+ ", descripcion=" + descripcion + ", isbn=" + isbn + ", imagenes=" + Arrays.toString(imagenes)
 				+ ", precio=" + precio + ", calidad=" + calidad + ", categoria=" + categoria + "]";
 	}
+	*/
+	
 	
 }

@@ -12,7 +12,8 @@ btnCartClose.addEventListener("click", () => {
     containerCart.style.display = "none";
 });
 
-//Importando y consumiendo datos de un json local para fines demostrativos
+//Importando y consumiendo datos de un json local para fines 
+/*
 import data from "./productos.json" assert {type: "json"};
 console.log(data);
 
@@ -99,4 +100,4 @@ function getTotal() {
     return total;
 }
 
-
+*/

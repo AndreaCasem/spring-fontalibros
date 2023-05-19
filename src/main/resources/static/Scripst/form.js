@@ -1,4 +1,5 @@
 // Subir imagenes formulario vender libro
+/*
 window.addEventListener("load", () => {
     const inputImages = document.getElementById("imagenes");
     const containerFile = document.getElementById("container-file");
@@ -39,3 +40,4 @@ window.addEventListener("load", () => {
         })
     }  
 })
+*/
