@@ -81,4 +81,12 @@ public class LibroController {
 		libroService.update(libro);
 		return "redirect:/libros";
 	}
+	
+	// Metodo para eliminar un libro
+	
+	@GetMapping("/eliminar/{id}")
+	public String eliminar(@PathVariable Integer id) {
+		libroService.delete(id);
+		return "redirect:/libros";
+	}
 }
