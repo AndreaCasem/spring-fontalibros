@@ -169,7 +169,7 @@ public class Libro {
 	public CalidadLibro getCalidad() {
 		return this.calidad;
 	}
-
+	
 	/*
 	public CategoriaLibro getCategoria() {
 		return this.categoria;
@@ -180,15 +180,10 @@ public class Libro {
 	@Override
 	public String toString() {
 		return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial
-				+ ", descripcion=" + descripcion + ", isbn=" + isbn + ", imagenes=" + imagenes + ", precio=" + precio
+				+ ", descripcion=" + descripcion + ", isbn=" + isbn + ", precio=" + precio
 				+ ", calidad=" + calidad + ", usuario=" + usuario + "]";
 	}
-	
-	
-	
-	
-	
-	
+
 	/*
 	@Override
 	public String toString() {

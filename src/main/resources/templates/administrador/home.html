@@ -52,47 +52,17 @@
             <!-- Inicio de section ultimos añadidos -->
             <div  class="last-added" id="last-added">
                 <h2>Últimos añadidos</h2>
-                <div class="last-book-container" id="last-book-container">
-                    <div class="card" id="card">
+                <div class="last-book-container" id="last-book-container" >
+                    <div class="card" id="card" th:each="libro: ${libros}">
                         <figure class="img-book">
                             <img src="https://picsum.photos/400/310" alt="libro">
                         </figure>
-                        <h3 class="book-title" id="book-title">Titulo</h3>
-                        <p class="author" id="author">Autor</p>
-                        <p class="status" id="status">Estado del libro</p>
-                        <span class="span-word price" id="price">Precio</span>
+                        <h3 class="book-title" id="book-title" th:text="${libro.titulo}"></h3>
+                        <p class="author" id="author" th:text="${libro.autor}"></p>
+                        <p class="status" id="status" th:text="${libro.calidad}"></p>
+                        <span class="span-word price" id="price" th:text="${libro.precio}"></span>
                         <button class="btn-add-to-cart btn" id="btn-add-to-car">Añadir al carrito</button>
-                    </div>
-                    <div class="card" id="card">
-                        <figure class="img-book">
-                            <img src="https://picsum.photos/400/310" alt="libro">
-                        </figure>
-                        <h3 class="book-title" id="book-title">Titulo</h3>
-                        <p class="author" id="author">Autor</p>
-                        <p class="status" id="status">Estado del libro</p>
-                        <span class="span-word price" id="price">Precio</span>
-                        <button class="btn-add-to-cart btn" id="btn-add-to-car">Añadir al carrito</button>
-                    </div>
-                    <div class="card" id="card">
-                        <figure class="img-book">
-                            <img src="https://picsum.photos/400/310" alt="libro">
-                        </figure>
-                        <h3 class="book-title" id="book-title">Titulo</h3>
-                        <p class="author" id="author">Autor</p>
-                        <p class="status" id="status">Estado del libro</p>
-                        <span class="span-word price" id="price">Precio</span>
-                        <button class="btn-add-to-cart btn" id="btn-add-to-car">Añadir al carrito</button>
-                    </div>
-                    <div class="card" id="card">
-                        <figure class="img-book">
-                            <img src="https://picsum.photos/400/310" alt="libro">
-                        </figure>
-                        <h3 class="book-title" id="book-title">Titulo</h3>
-                        <p class="author" id="author">Autor</p>
-                        <p class="status" id="status">Estado del libro</p>
-                        <span class="span-word price" id="price">Precio</span>
-                        <button class="btn-add-to-cart btn" id="btn-add-to-car">Añadir al carrito</button>
-                    </div>
+                    </div>           
                 </div>
             </div>
             <!-- Fin de section ultimos añadidos -->

@@ -20,7 +20,7 @@ function togglePassword() {
     };
 }
 
-// Botón desplegable usuario logeado
+// Botón desplegable usuario logeado admin
 function myFunction() {
     var dropdown = document.getElementById("myDropdown");
     if (dropdown.style.display === "none") {

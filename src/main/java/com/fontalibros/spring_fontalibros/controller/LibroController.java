@@ -1,6 +1,5 @@
 package com.fontalibros.spring_fontalibros.controller;
 
-import java.io.IOException;
 import java.util.Optional;
 
 import org.slf4j.*;
@@ -11,13 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.fontalibros.spring_fontalibros.model.Libro;
 import com.fontalibros.spring_fontalibros.model.Usuario;
 import com.fontalibros.spring_fontalibros.service.LibroService;
-import com.fontalibros.spring_fontalibros.service.UploadFileService;
 
 
 
@@ -37,9 +33,6 @@ public class LibroController {
 	@Autowired
 	private LibroService libroService;
 	
-	@Autowired
-	private UploadFileService upload;
-	
 	
 	// Recibe la solicitud Get a la ruta base /libros y muestra la vista libros/show
 	// Pasamos como parametro un objeto de tipo model que nos va a llevar informacion del backend a la vista
@@ -58,26 +51,10 @@ public class LibroController {
 	// Hacemos una peticion directamente al controlador libros para que nos cargue la vista show
 	
 	@PostMapping("/save")
-	public String save(Libro libro, @RequestParam("imagenes") MultipartFile file) throws IOException {
+	public String save(Libro libro) {
 		LOGGER.info("este es el objeto libro de la vista {}",libro);
 		Usuario u = new Usuario(1, "", "", "", "", "", "", "", "");
 		libro.setUsuario(u);
-		
-		// imagen
-		if (libro.getId() == null) { // Cuando se crea un libro y se carga una imagen por primera vez
-			String nombreImagen = upload.saveImage(file);
-			libro.setImagenes(nombreImagen);
-		} else {
-			if (file.isEmpty()) { // Cuando se edita el libro pero no se cambia la imagen se deja la que tenía
-				Libro l = new Libro();
-				l = libroService.get(libro.getId()).get();
-				libro.setImagenes(l.getImagenes());
-			} else { // Cambiar la imagen cuando se edite el libro
-				String nombreImagen = upload.saveImage(file);
-				libro.setImagenes(nombreImagen);
-			}
-		}
-		
 		libroService.save(libro);
 		return "redirect:/libros";
 	}
