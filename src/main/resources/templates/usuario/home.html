@@ -30,78 +30,7 @@
 </head>
 <body>
     <!-- Inicio de header -->
-    <div class="wrapper">
-        <header class="header" id="header">
-            <span class="navbar" id="btn-menu"><i class="fa-solid fa-bars"></i></span>
-            <a href="#" class="logo">
-                <img src="/images/logo-header.png" width="200px" alt="logo Fontalibros">
-            </a>
-            <form class="form" action="">
-                <input class="input" name="search" type="text" placeholder="Buscar por título o autor">
-                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-            <ul class="account account-modal" id="account">
-                <li><a href="#" class="login" id="login-btn">Iniciar sesión</a></li>
-                <li><a href="#" class="register btn" id="register-btn">Registrarse</a></li>
-            </ul>
-            <span class="btn-shopping-cart" id="btn-shopping-cart"><i class="fa-solid fa-cart-shopping"></i></span>
-        
-        </header>
-              
-        <nav class="main-nav" id="main-nav">
-            <ul class="menu" id="menu">
-                <span class="navbar btn-close" id="btn-close"><i class="fa-solid fa-xmark"></i></span>
-                <li class="menu-item"><a href="/pages/home.html" class="menu-link" id="home">Home</a></li>
-                <li class="menu-item"><a href="/pages/comoFunciona.html" class="menu-link">Cómo funciona</a></li>
-                <li class="menu-item container-submenu">
-                    <a href="/pages/libros.html" class="menu-link submenu-btn">Libros <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="submenu">
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Educación</a></li>
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Literatura</a></li>
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Infantil</a></li>
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Todos</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item"><a href="/pages/contacto.html" class="menu-link">Contacto</a></li>
-                <!-- <li class="menu-item"><a href="/pages/venderLibro.html" class="menu-link" id="sell-book"><i class="fa-solid fa-book"></i> Vende tus libros</a></li> -->
-                <!-- <ul class="account-modal" id="account">
-                    <li><a href="#">Iniciar sesión</a></li>
-                    <li><a href="#">Registrarse</a></li>
-                </ul> -->
-            </ul>
-        </nav>
-
-        <!-- inicio contenedor carrito de compras -->
-        <div class="container-cart" id="container-cart">
-            <div class="container-shopping-cart" id="container-shopping-cart">
-                <div class="header-cart">
-                    <p>Carrito de compra</p>
-                    <span class="btn-close-cart" id="btn-close-cart"><i class="fa-solid fa-xmark"></i></span>
-                </div>
-                <div class="list-cart" id="list-cart">
-                    <!-- <div class="product" id="product">
-                        <img src="https://picsum.photos/400/310" alt="">
-                        <div class="text-cart">
-                            <h3>Título libro</h3>
-                            <span class="span-word">Precio</span>
-                        </div>
-                        <span class="delete-product" id="delete-product"><i class="fa-solid fa-trash"></i></span>
-                    </div> -->
-                </div> 
-                    
-                <div class="total-cart" id="total-cart">
-                    <div class="total-text">
-                        <h3>Total</h3>
-                        <p id="total-price">$0</p>
-                    </div>
-                    <div class="container-buy">
-                        <a href="/pages/libros.html">Ver más libros</a>
-                        <button class="btn-buy btn" id="btn-buy">Iniciar compra</button>
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </div>
+    <div th:replace="/usuario/template_usuario.html :: header"></div>
     <!-- Fin de header -->
 
     <main class="main" id="main">
@@ -142,39 +71,7 @@
     </main>
 
      <!-- Inicio de footer-->
-     <footer class="footer" id="footer">
-        <div class="footer-container">
-            <div class="container">
-                <!-- <figure class="white-logo">
-                <img src="/images/Logo_blanco_footer.png" alt="Logo Fontalibros blanco">
-                </figure> -->
-                <h4>Ayuda</h4>
-                <ul class="info-list" id="help-list">
-                    <li><a href="comoFunciona.html" class="item-footer">Cómo comprar</a></li>
-                    <li><a href="comoFunciona.html" class="item-footer">Cómo vender</a></li>
-                    <li><a href="#" class="item-footer">Preguntas frecuentes</a></li>
-                </ul>
-            </div>
-                
-            <div class="container">
-                <h4>Más información</h4>
-                <ul class="info-list" id="help-list">
-                    <li><a href="contacto.html" class="item-footer">Contacto</a></li>
-                    <li><a href="#" class="item-footer">Condiciones de uso</a></li>
-                    <li><a href="#" class="item-footer">Diseñado y construido por María Castro</a></li>
-                </ul>
-            </div>
-    
-            <div class="container">
-                <div class="social-media">
-                    <a href="https://es-la.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://twitter.com/?lang=es" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-        <p> &copy; Copyright 2023 | Todos los derechos reservados</p>
-    </footer>
+     <div th:replace="/usuario/template_usuario.html :: footer"></div>
     <!-- Fin de footer--> 
     
     <!-- Scripts -->
