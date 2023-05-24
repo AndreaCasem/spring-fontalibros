@@ -78,6 +78,12 @@ public class LibroController {
 	
 	@PostMapping("/actualizar")
 	public String actualizar(Libro libro) {
+		
+		// Obtener el usuario del libro cuando se edita el libro
+		Libro l = new Libro();
+		l = libroService.get(libro.getId()).get();
+		
+		libro.setUsuario(l.getUsuario());
 		libroService.update(libro);
 		return "redirect:/libros";
 	}
