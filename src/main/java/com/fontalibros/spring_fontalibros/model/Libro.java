@@ -22,6 +22,7 @@ public class Libro {
 	private String isbn;
 	private String imagenes;
 	private double precio;
+	private int cantidad;
 	private CalidadLibro calidad;
 	//private CategoriaLibro categoria;
 	
@@ -57,7 +58,7 @@ public class Libro {
 	
 	// Constructor con todos los campos
 	public Libro(Integer id, String titulo, String autor, String editorial, String descripcion, String isbn,
-			String imagenes, double precio, CalidadLibro calidad, Usuario usuario) {
+			String imagenes, double precio, int cantidad, CalidadLibro calidad, Usuario usuario) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -67,8 +68,8 @@ public class Libro {
 		this.isbn = isbn;
 		this.imagenes = imagenes;
 		this.precio = precio;
+		this.cantidad = cantidad;
 		this.calidad = calidad;
-		//this.categoria = categoria;
 		this.usuario = usuario;
 	}
 
@@ -79,7 +80,6 @@ public class Libro {
 		return id;
 	}
 	
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -144,6 +144,15 @@ public class Libro {
 		this.imagenes = imagenes;
 	}
 
+	public int getCantidad() {
+		return cantidad;
+	}
+
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
 
 	public double getPrecio() {
 		return precio;
@@ -169,6 +178,7 @@ public class Libro {
 	public CalidadLibro getCalidad() {
 		return this.calidad;
 	}
+
 	
 	/*
 	public CategoriaLibro getCategoria() {
@@ -180,10 +190,11 @@ public class Libro {
 	@Override
 	public String toString() {
 		return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial
-				+ ", descripcion=" + descripcion + ", isbn=" + isbn + ", precio=" + precio
-				+ ", calidad=" + calidad + ", usuario=" + usuario + "]";
+				+ ", descripcion=" + descripcion + ", isbn=" + isbn + ", imagenes=" + imagenes + ", precio=" + precio
+				+ ", cantidad=" + cantidad + ", calidad=" + calidad + ", usuario=" + usuario + "]";
 	}
 
+	
 	/*
 	@Override
 	public String toString() {

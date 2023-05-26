@@ -47,7 +47,7 @@
                 <tr>
                     <th>Título</th>
                     <th>Autor</th>
-                    <th>Descripción</th>
+                    <th>Cantidad</th>
                     <th>Precio</th>
                     <th>Acción</th>
                     <th>Acción</th>
@@ -58,7 +58,7 @@
                 <tr th:each="libro:${libros}">
                     <td th:text="${libro.titulo}"></td>
                     <td th:text="${libro.autor}"></td>
-                    <td th:text="${libro.descripcion}"></td>
+                    <td th:text="${libro.cantidad}"></td>
                     <td th:text="${libro.precio}"></td>
                     <td><a  class="btn-warning" th:href="@{libros/editar/{id} (id = ${libro.id})}">Editar <i class="fa-solid fa-pencil"></i></a> </td>
                     <td><a  class="btn-danger" th:href="@{libros/eliminar/{id} (id = ${libro.id})}">Eliminar <i class="fa-solid fa-trash"></i></a> </td>

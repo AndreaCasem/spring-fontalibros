@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontalibros</title>
+    <!-- Generic styles -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <!-- style header -->
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <!-- style main -->
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!-- style forms -->
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+    <!-- style books -->
+    <link rel="stylesheet" th:href="@{/css/books.css}">
+    <!-- style cart -->
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <!-- style footer -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon1.png}" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Inicio de header -->
+    <div th:replace="/usuario/template_usuario.html :: header"></div>
+    <!-- Fin de header -->
+
+    <main class="main" id="main">
+        <!-- Inicio de section ver libro -->
+        <section class="see-book" id="see-book">
+            <figure class="image-see-book">
+                <img src="https://picsum.photos/400/310" alt="libro">
+            </figure>
+            <div>
+                <form action="#" method="post">
+                    <ul class="list-see-book">
+                        <li class="list-see-book-item"><h4 th:text="'Título: ' + ${libro.titulo}"></p></li>
+                        <li class="list-see-book-item"><p th:text="'Autor: ' + ${libro.autor}"></p></li>
+                        <li class="list-see-book-item"><p th:text="'Editorial: ' + ${libro.editorial}"></h5></li>
+                        <li class="list-see-book-item"><p th:text="'ISBN: ' + ${libro.isbn}"></h4></li>
+                        <li class="list-see-book-item"><p th:text="'Descripción: ' + ${libro.descripcion}"></p></li>
+                        <li class="list-see-book-item"><p th:text="'Calidad: ' + ${libro.calidad}"></p></li>
+                        <li class="list-see-book-item"><h4 th:text="'Precio: ' + ${libro.precio}"></h4></li>
+                        <li class="list-see-book-item"><h4>Cantidad: <input type="number" id="cantidad" name="cantidad" autocomplete="off"
+                            min="1" max="5" value="1"></h4></li>
+                    </ul>
+
+                    <button type="submit" class="btn">Agregar al carrito</button>
+                </form>
+            </div>
+        </section>
+        <!-- Fin de section ver libro-->
+    </main>
+
+     <!-- Inicio de footer-->
+     <div th:replace="/usuario/template_usuario.html :: footer"></div>
+    <!-- Fin de footer-->  
+    
+    <!-- Scripts -->
+    <script defer th:src="@{/Scripst/menu.js}"></script>
+    <script type="module" th:src="@{/Scripst/cart.js}"></script>
+    <script defer th:src="@{/Scripst/main.js}"></script>  
+</body>
+</html>
