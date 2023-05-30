@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontalibros</title>
+    <!-- Generic styles -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <!-- style header -->
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <!-- style main -->
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!-- style forms -->
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+    <!-- style books -->
+    <link rel="stylesheet" th:href="@{/css/books.css}">
+    <!-- style cart -->
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <!-- style footer -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon1.png}" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- inicio contenedor carrito de compras -->
+        <div class="container-cart" id="container-cart">
+            <div class="container-shopping-cart" id="container-shopping-cart">
+                <div class="header-cart">
+                    <p>Carrito de compra</p>
+                    <a th:href="@{/}" class="btn-close-cart" id="btn-close-cart"><i class="fa-solid fa-xmark"></i></a>
+                </div>
+                <div class="list-cart" id="list-cart">
+                    <div class="product" id="product">
+                        <img src="https://picsum.photos/400/310" alt="">
+                        <div class="text-cart">
+                            <h3>Título libro</h3>
+                            <span class="span-word">Precio</span>
+                        </div>
+                        <span class="delete-product" id="delete-product"><i class="fa-solid fa-trash"></i></span>
+                    </div>
+                </div> 
+                    
+                <div class="total-cart" id="total-cart">
+                    <div class="total-text">
+                        <h3>Total</h3>
+                        <p id="total-price">$0</p>
+                    </div>
+                    <div class="container-buy">
+                        <a href="/pages/libros.html">Ver más libros</a>
+                        <button class="btn-buy btn" id="btn-buy">Iniciar compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+    <!-- Fin de header -->
+
+    <!-- Scripts -->
+    <script defer th:src="@{/Scripst/menu.js}"></script>
+    <script type="module" th:src="@{/Scripst/cart.js}"></script>
+    <script defer th:src="@{/Scripst/main.js}"></script> 
+</body>
+</html>

@@ -1,3 +1,4 @@
+/*
 const btnCartOpen = document.getElementById("btn-shopping-cart");
 const btnCartClose = document.getElementById("btn-close-cart");
 const containerCart = document.getElementById("container-cart");
@@ -11,6 +12,7 @@ btnCartOpen.addEventListener("click", () => {
 btnCartClose.addEventListener("click", () => {
     containerCart.style.display = "none";
 });
+*/
 
 //Importando y consumiendo datos de un json local para fines 
 /*

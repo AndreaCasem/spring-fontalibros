@@ -40,7 +40,10 @@
                 <img src="https://picsum.photos/400/310" alt="libro">
             </figure>
             <div>
-                <form action="#" method="post">
+                <form th:action="@{/cart}" method="POST">
+					<!-- Se crea un campo input oculto para que se muestre aquí el id del libro y luego poder buscarlo en la base de datos -->
+					<input type="hidden" th:value="${libro.id}" name="id">
+                    
                     <ul class="list-see-book">
                         <li class="list-see-book-item"><h4 th:text="'Título: ' + ${libro.titulo}"></p></li>
                         <li class="list-see-book-item"><p th:text="'Autor: ' + ${libro.autor}"></p></li>
