@@ -58,7 +58,7 @@ public class HomeController {
 	
 	// Metodo para redireccionar al carrito de compra
 	@PostMapping("/cart")
-	public String addCart(@RequestParam Integer id , @RequestParam Integer cantidad) { // Argumentos para recibir el id del libro y la cantidad
+	public String addCart(@RequestParam Integer id , @RequestParam Integer cantidad, Model model) { // Argumentos para recibir el id del libro y la cantidad
 		DetalleOrden detalleOrden = new DetalleOrden();
 		Libro libro = new Libro();
 		double sumaTotal = 0;
@@ -68,6 +68,22 @@ public class HomeController {
 		// Prueba por consola para buscar el libro y se esté recibiendo la cantidad
 		log.info("Libro añadido: {}", optionalLibro.get());
 		log.info("cantidad: {}", cantidad);
+		libro = optionalLibro.get();
+		
+		detalleOrden.setCantidad(cantidad);
+		detalleOrden.setPrecio(libro.getPrecio());
+		detalleOrden.setNombre(libro.getTitulo());
+		detalleOrden.setTotal(libro.getPrecio() * cantidad);
+		detalleOrden.setLibro(libro); // Poner el id del libro
+		
+		// Añadiendo cada detalleOrden que sería cada libro al carrito de compra
+		detalles.add(detalleOrden);
+		
+		sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
+		
+		orden.setTotal(sumaTotal);
+		model.addAttribute("cart", detalles);
+		model.addAttribute("orden", orden);
 		
 		return "usuario/carrito";
 	}

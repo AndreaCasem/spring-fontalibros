@@ -37,11 +37,13 @@
                     <a th:href="@{/}" class="btn-close-cart" id="btn-close-cart"><i class="fa-solid fa-xmark"></i></a>
                 </div>
                 <div class="list-cart" id="list-cart">
-                    <div class="product" id="product">
+                    <div class="product" id="product" th:each="dorden:${cart}">
                         <img src="https://picsum.photos/400/310" alt="">
                         <div class="text-cart">
-                            <h3>Título libro</h3>
-                            <span class="span-word">Precio</span>
+                            <h3 th:text="${dorden.nombre}"></h3>
+                            <span class="span-word" th:text="${dorden.precio}"></span>
+                            <span th:text="'Cantidad: ' + ${dorden.cantidad}"></span>
+                        	<span th:text="'Total: ' + ${dorden.total}"></span>
                         </div>
                         <span class="delete-product" id="delete-product"><i class="fa-solid fa-trash"></i></span>
                     </div>
@@ -49,8 +51,8 @@
                     
                 <div class="total-cart" id="total-cart">
                     <div class="total-text">
-                        <h3>Total</h3>
-                        <p id="total-price">$0</p>
+                        <h3>SubTotal</h3>
+                        <p id="total-price" th:text="${orden.total}"></p>
                     </div>
                     <div class="container-buy">
                         <a href="/pages/libros.html">Ver más libros</a>
