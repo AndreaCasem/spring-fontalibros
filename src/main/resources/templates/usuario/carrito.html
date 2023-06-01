@@ -45,7 +45,7 @@
                             <span th:text="'Cantidad: ' + ${dorden.cantidad}"></span>
                         	<span th:text="'Total: ' + ${dorden.total}"></span>
                         </div>
-                        <span class="delete-product" id="delete-product"><i class="fa-solid fa-trash"></i></span>
+                        <a th:href="@{/delete/cart/{id} (id = ${dorden.libro.id})}" class="delete-product" id="delete-product"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div> 
                     
