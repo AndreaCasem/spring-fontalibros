@@ -14,25 +14,17 @@
                 <li><a href="#" class="login" id="login-btn">Iniciar sesión</a></li>
                 <li><a href="#" class="register btn" id="register-btn">Registrarse</a></li>
             </ul>
-            <span class="btn-shopping-cart" id="btn-shopping-cart"><i class="fa-solid fa-cart-shopping"></i></span>
+            <a th:href="@{/getCart}" class="btn-shopping-cart" id="btn-shopping-cart"><i class="fa-solid fa-cart-shopping"></i></a>
         
         </header>
               
         <nav class="main-nav" id="main-nav">
             <ul class="menu" id="menu">
                 <span class="navbar btn-close" id="btn-close"><i class="fa-solid fa-xmark"></i></span>
-                <li class="menu-item"><a href="/pages/home.html" class="menu-link" id="home">Home</a></li>
-                <li class="menu-item"><a href="/pages/comoFunciona.html" class="menu-link">Cómo funciona</a></li>
-                <li class="menu-item container-submenu">
-                    <a href="/pages/libros.html" class="menu-link submenu-btn">Libros <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="submenu">
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Educación</a></li>
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Literatura</a></li>
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Infantil</a></li>
-                        <li class="menu-item"><a href="/pages/libros.html" class="menu-link">Todos</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item"><a href="/pages/contacto.html" class="menu-link">Contacto</a></li>
+                <li class="menu-item"><a th:href="@{/}" class="menu-link" id="home">Home</a></li>
+                <li class="menu-item"><a th:href="@{/comoFunciona}" class="menu-link">Cómo funciona</a></li>
+                <li class="menu-item container-submenu"><a th:href="@{/libro}" class="menu-link submenu-btn">Libros</a></li>
+                <li class="menu-item"><a th:href="@{/contacto}" class="menu-link">Contacto</a></li>
                 <!-- <li class="menu-item"><a href="/pages/venderLibro.html" class="menu-link" id="sell-book"><i class="fa-solid fa-book"></i> Vende tus libros</a></li> -->
                 <!-- <ul class="account-modal" id="account">
                     <li><a href="#">Iniciar sesión</a></li>

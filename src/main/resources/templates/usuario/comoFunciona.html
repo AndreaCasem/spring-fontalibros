@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fontalibros</title>
@@ -33,48 +33,40 @@
     <div th:replace="/usuario/template_usuario.html :: header"></div>
     <!-- Fin de header -->
 
+
     <main class="main" id="main">
-        <!-- Inicio de section introduccion -->
-        <section class="home" id="home">
-            <div class="intro">
-                <div class="intro-text">
-                    <h1>Compra o vende <span class="span-word">libros</span> de segunda mano</h1>
-                    <p class="para">Dale la oportunidad a un libro de segunda mano o convierte en dinero aquellos que ya no necesites.</p>
-                    <p>¡Te conectamos con ellos!</p>
-                    <a class="btn-aux button" th:href="@{/comoFunciona}">Leer más</a>
+        <section class="how-container" id="how-container">
+            <div class="howork">
+                <div>
+                    <h2>¿Cómo funciona <span class="span-word">Fontalibros</span>?</h2>
+                    <p>¡Es muy sencillo!​ Fontalibros es una herramienta que interconecta a vendedores y compradores de libros de segunda mano. Como vendedor puedes anunciar todos los libros que ya no necesitas y como comprador, a través del buscador o nuestro menú de libros podrás encontrar el libro que desea y adquirirlo.</p>
                 </div>
-                <figure class="intro-img">
-                    <img src="/images/Reading-book.svg" alt="Leyendo libro">
+                <figure>
+                    <img src="/images/Thesis-img.svg" alt="persona estudiando">
                 </figure>
             </div>
-            
-             <!-- Inicio de section ultimos añadidos -->
-            <div  class="last-added" id="last-added">
-                <h2>Últimos añadidos</h2>
-                <div class="last-book-container" id="last-book-container" >
-                    <div class="card" id="card" th:each="libro: ${libros}">
-                        <figure class="img-book">
-                            <img src="https://picsum.photos/400/310" alt="libro">
-                        </figure>
-                        <h3 class="book-title" id="book-title" th:text="${libro.titulo}"></h3>
-                        <p class="author" id="author" th:text="${libro.autor}"></p>
-                        <p class="status" id="status" th:text="${libro.calidad}"></p>
-                        <span class="span-word price" id="price" th:text="${libro.precio}"></span>
-                        <div class="btn-link-container">
-							<a th:href="@{/libroHome/{id} (id = ${libro.id})}" class="btn button" id="btn-link">Ver libro</a>
-						</div>
-                        
-                        <!--<button class="btn-add-to-cart btn" id="btn-add-to-car">Ver libro</button>-->
-                    </div>           
+            <div class="howork">
+                <div class="howork_book">
+                    <h3>¿Estás buscando un libro?</h3>
+                    <ol class="how-list">
+                        <li class="item_how">Dirígete al buscador de libros de nuestra página, allí podrás buscar por título o autor.</li>
+                        <li class="item_how">Cuando ya hayas encontrado el​ libro que deseas agrega al carrito de compras.</li>
+                        <li class="item_how">Confirma tu compra y pronto tendrás tu libro.</li>
+                    </ol>
+                </div>
+                <div class="howork_book">
+                    <h3>¿Quieres vender tus libros?</h3>
+                    <ol class="how-list">
+                        <li class="item_how">Dirígete a la página de vende tus libros ​​y llena el formulario con todos los datos relacionados a tu libro.​</li>
+                        <li class="item_how">No olvides incluir fo​tos de tu libro, es una buena forma para vender tus libros más rápido.</li>
+                        <li class="item_how">Cuando sea comprado tu libro se te informarará por correo electrónico y deberás asegurarte de enviar  el libro a la empresa de envíos que te indiquemos. Recuerda que tienes que hacer el envío lo antes posible, alguien espera con ansias el libro.</li>
+                    </ol>
                 </div>
             </div>
-            <!-- Fin de section ultimos añadidos -->
-
         </section>
-        <!-- Fin de section introduccion-->
     </main>
 
-     <!-- Inicio de footer-->
+    <!-- Inicio de footer-->
      <div th:replace="/usuario/template_usuario.html :: footer"></div>
     <!-- Fin de footer--> 
     

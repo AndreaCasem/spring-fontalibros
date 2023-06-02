@@ -28,51 +28,32 @@
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
     <!-- Inicio de header -->
-    	<div th:replace="/administrador/template_admin.html :: header"></div>
-
-  		<!-- <div th:include="/administrador/template_admin.html::header"></div> -->
-  		 
+    <div th:replace="/usuario/template_usuario.html :: header"></div>
     <!-- Fin de header -->
 
     <main class="main" id="main">
-       <h3>Fontalibros | <span class="span-word">libros</span></h3>
-       <div class="publish-container">
-            <a class="btn-aux" th:href="@{/libros/crear}"> Publicar libro</a>
-            <h4 class="publish-tittle">libros</h4>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Acción</th>
-                    <th>Acción</th>
-                </tr>
-                </thead>
-                <tbody>
-					<!-- Utilizamos Thymeleaf para mostrar los datos en la tabla, libros es la variable que definimos como atributo en el objeto model de la clase LibroController -->
-                <tr th:each="libro:${libros}">
-                    <td th:text="${libro.titulo}"></td>
-                    <td th:text="${libro.autor}"></td>
-                    <td th:text="${libro.cantidad}"></td>
-                    <td th:text="${libro.precio}"></td>
-                    <td><a  class="btn-warning" th:href="@{libros/editar/{id} (id = ${libro.id})}">Editar <i class="fa-solid fa-pencil"></i></a> </td>
-                    <td><a  class="btn-danger" th:href="@{libros/eliminar/{id} (id = ${libro.id})}">Eliminar <i class="fa-solid fa-trash"></i></a> </td>
-                </tr>       
-                </tbody>
-            </table>
-       </div>
+        <!-- Inicio section formulario de contacto  -->
+        <section class="contact" id="contact">
+            <h2>Contacto </h2>
+            <form class="form-contact">
+                <div>
+                    <label for="contacto-nombre">Nombre:</label>
+                    <input type="text" name="contacto-nombre" id="contacto-nombre" placeholder="Ingresa tu nombre aquí" class="inputex" required>
+                    <label for="contacto-email">Correo:</label>
+                    <input type="email" name="contacto-email" id="contacto-email" placeholder="Ingresa tu correo aquí" class="inputex" required>
+                    <label for="contacto-mensaje">Mensaje:</label>
+                    <textarea name="contacto-mensaje" id="contacto-mensaje" placeholder="Déjanos tu mensaje aquí" class="inputex" required></textarea>
+                    <input type="Submit" value="Enviar" class="btn"></input>
+                </div>
+            </form>
+        </div>
+        <!-- Fin section formulario de contacto -->
     </main>
 
-     <!-- Inicio de footer-->
-     	<div th:replace="/administrador/template_admin.html :: footer"></div>
-     	
-     	<!-- <div th:include="/administrador/template_admin.html::footer"></div> -->
-
+   <!-- Inicio de footer-->
+     <div th:replace="/usuario/template_usuario.html :: footer"></div>
     <!-- Fin de footer--> 
     
     <!-- Scripts -->
@@ -80,4 +61,3 @@
     <script type="module" th:src="@{/Scripst/cart.js}"></script>
     <script defer th:src="@{/Scripst/main.js}"></script> 
 </body>
-</html>

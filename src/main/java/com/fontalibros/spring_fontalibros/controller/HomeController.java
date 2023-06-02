@@ -76,8 +76,15 @@ public class HomeController {
 		detalleOrden.setTotal(libro.getPrecio() * cantidad);
 		detalleOrden.setLibro(libro); // Poner el id del libro
 		
-		// Añadiendo cada detalleOrden que sería cada libro al carrito de compra
-		detalles.add(detalleOrden);
+		// Validando que un mismo libro no se añada dos veces
+		Integer idLibro = libro.getId();
+		boolean ingresado = detalles.stream().anyMatch(l -> l.getLibro().getId() == idLibro);
+		
+		if (! ingresado) {
+			detalles.add(detalleOrden); 	// Añadiendo cada detalleOrden que sería cada libro al carrito de compra
+		}
+		
+
 		
 		sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
 		
@@ -114,6 +121,34 @@ public class HomeController {
 		model.addAttribute("orden", orden);
 		
 		return "usuario/carrito";
+	}
+	
+	// Accediendo al carrito de compra desde cualquier parte de la página
+	@GetMapping("/getCart")
+	public String getCart(Model model) {
+		model.addAttribute("cart", detalles);
+		model.addAttribute("orden", orden);
+		
+		return "/usuario/carrito";
+	}
+	
+	
+	// Metodos para dirigir desde el menu de navegacion a sus respectivas paginas
+	@GetMapping("/libro")
+	public String showLibro(Model model) {
+		model.addAttribute("libros", libroService.findAll());
+		return "/usuario/libros";
+	}
+	
+	
+	@GetMapping("/comoFunciona")
+	public String showComoFunciona(Model model) {
+		return "/usuario/comoFunciona";
+	}
+	
+	@GetMapping("/contacto")
+	public String showContacto(Model model) {
+		return "/usuario/contacto";
 	}
 	
 	

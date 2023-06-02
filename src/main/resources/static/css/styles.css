@@ -73,3 +73,11 @@ h2 {
     text-decoration: none;
     color: #FFFFFF;
   }
+  
+  .btn-aux {
+	 background-color: var(--lightBlue);
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: .3em;
+  }

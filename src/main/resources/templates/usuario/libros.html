@@ -29,30 +29,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- Inicio de header -->
+      <!-- Inicio de header -->
     <div th:replace="/usuario/template_usuario.html :: header"></div>
     <!-- Fin de header -->
 
     <main class="main" id="main">
-        <!-- Inicio de section introduccion -->
-        <section class="home" id="home">
-            <div class="intro">
-                <div class="intro-text">
-                    <h1>Compra o vende <span class="span-word">libros</span> de segunda mano</h1>
-                    <p class="para">Dale la oportunidad a un libro de segunda mano o convierte en dinero aquellos que ya no necesites.</p>
-                    <p>¡Te conectamos con ellos!</p>
-                    <a class="btn-aux button" th:href="@{/comoFunciona}">Leer más</a>
-                </div>
-                <figure class="intro-img">
-                    <img src="/images/Reading-book.svg" alt="Leyendo libro">
-                </figure>
-            </div>
-            
-             <!-- Inicio de section ultimos añadidos -->
-            <div  class="last-added" id="last-added">
-                <h2>Últimos añadidos</h2>
-                <div class="last-book-container" id="last-book-container" >
-                    <div class="card" id="card" th:each="libro: ${libros}">
+        <section class="books">
+            <div class="last-book-container " id="list-book-container">
+                <div class="card" id="card" th:each="libro: ${libros}">
                         <figure class="img-book">
                             <img src="https://picsum.photos/400/310" alt="libro">
                         </figure>
@@ -63,24 +47,18 @@
                         <div class="btn-link-container">
 							<a th:href="@{/libroHome/{id} (id = ${libro.id})}" class="btn button" id="btn-link">Ver libro</a>
 						</div>
-                        
-                        <!--<button class="btn-add-to-cart btn" id="btn-add-to-car">Ver libro</button>-->
-                    </div>           
-                </div>
+               </div> 
             </div>
-            <!-- Fin de section ultimos añadidos -->
-
         </section>
-        <!-- Fin de section introduccion-->
     </main>
 
      <!-- Inicio de footer-->
      <div th:replace="/usuario/template_usuario.html :: footer"></div>
     <!-- Fin de footer--> 
-    
-    <!-- Scripts -->
+
+     <!-- Scripts -->
     <script defer th:src="@{/Scripst/menu.js}"></script>
     <script type="module" th:src="@{/Scripst/cart.js}"></script>
-    <script defer th:src="@{/Scripst/main.js}"></script> 
+    <script defer th:src="@{/Scripst/main.js}"></script>  
+
 </body>
-</html>
