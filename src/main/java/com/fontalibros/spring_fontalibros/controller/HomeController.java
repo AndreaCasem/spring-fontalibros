@@ -152,4 +152,11 @@ public class HomeController {
 	}
 	
 	
+	// Metodo para redirigir a la vista resumen orden desde carrito de compra
+	@GetMapping("/orden")
+	public String orden() {
+		return "usuario/resumenOrden";
+	}
+	
+	
 }

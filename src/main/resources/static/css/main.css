@@ -160,6 +160,29 @@
     line-height: 2em;
   }
   
+   /* Inicio estilos resumen orden */
+  .list-group-orden {
+    margin-top: 1.5em;
+    list-style: none;
+  }
+
+  .resume-orden-total {
+    height: 180px;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    padding: 1em;
+  }
+
+  .list-group-orden-item {
+    margin-bottom: 1em;
+  }
+
+  .resume-orden {
+    width: 200px;
+    margin-bottom: 1em;
+  }
+  
+  
   
 
 /* responsivo */
@@ -230,5 +253,13 @@
     padding: 0 6em;
     margin-top: 5em;
     gap: 5em;
+  }
+  
+ /* Inicio estilos resumen orden */
+  .resume-orden {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
