@@ -48,7 +48,7 @@
                     <h3>Resumen Orden</h3>
                     <ul class="list-group-orden">
                         <li class="list-group-orden-item"><p th:text=" 'Total: ' + ${orden.total}"></p></li>
-                        <a href="#" class="btn-aux">Generar orden</a>
+                        <a th:href="@{saveOrder}" class="btn-aux">Generar orden</a>
                     </ul>
                 </div>
                 

@@ -1,6 +1,8 @@
 package com.fontalibros.spring_fontalibros.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +21,8 @@ import com.fontalibros.spring_fontalibros.model.DetalleOrden;
 import com.fontalibros.spring_fontalibros.model.Libro;
 import com.fontalibros.spring_fontalibros.model.Orden;
 import com.fontalibros.spring_fontalibros.model.Usuario;
+import com.fontalibros.spring_fontalibros.service.IDetalleOrdenService;
+import com.fontalibros.spring_fontalibros.service.IOrdenService;
 import com.fontalibros.spring_fontalibros.service.IUsuarioService;
 import com.fontalibros.spring_fontalibros.service.LibroService;
 
@@ -33,6 +37,13 @@ public class HomeController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
+	
+	@Autowired
+	private IOrdenService ordenService;
+	
+	@Autowired
+	private IDetalleOrdenService detalleOrdenService;
+	
 	
 	// Para almacenar los detalles de la orden, una orden puede tener uno o varios detalles
 	List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -169,5 +180,30 @@ public class HomeController {
 		return "usuario/resumenOrden";
 	}
 	
+	// Metodo para guardar la orden
+	@GetMapping("/saveOrder")
+	public String saveOrder() {
+		Date fechaCreacion = new Date();
+		orden.setFechaCreacion(fechaCreacion);
+		orden.setNumero(ordenService.generarNumeroOrden());
+		
+		// Usuario que está haciendo la orden
+		Usuario usuario = usuarioService.findById(1).get();
+		
+		orden.setUsuario(usuario);
+		ordenService.save(orden);
+		
+		// Guardando los detalles
+		for (DetalleOrden dt:detalles) {
+			dt.setOrden(orden);
+			detalleOrdenService.save(dt);
+		}
+		
+		// Limpiando lista y orden
+		orden = new Orden();
+		detalles.clear();
+		
+		return "redirect:/";
+	}
 	
 }
