@@ -62,22 +62,22 @@ h2 {
 }
 
 .btn-link-container {
-    text-align: center; /* Centra el botón horizontalmente */
-    margin-top: 10px; /* Espacio superior */
-  }
+    text-align: center;
+    margin-top: 10px;
+}
   
-  .btn {
-    display: inline-block; /* Para que el botón ocupe solo el ancho necesario */
-    padding: 10px 20px; /* Ajusta el espaciado interno del botón */
+.btn {
+    display: inline-block; 
+    padding: 10px 20px; 
     background-color: var(--lightBlue);
     text-decoration: none;
     color: #FFFFFF;
-  }
-  
-  .btn-aux {
-	 background-color: var(--lightBlue);
-    color: #FFFFFF;
-    padding: 10px 20px;
-    border: none;
-    border-radius: .3em;
-  }
+}
+
+.btn-aux {
+    background-color: var(--lightBlue);
+   color: #FFFFFF;
+   padding: 10px 20px;
+   border: none;
+   border-radius: .3em;
+ }

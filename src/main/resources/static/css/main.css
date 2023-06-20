@@ -134,7 +134,7 @@
   .publish-tittle {
     margin: 2em 0;
   }
-  
+
   /* inicio estilos ver libros */
   .see-book {
     display: flex;
@@ -159,8 +159,8 @@
     list-style: none;
     line-height: 2em;
   }
-  
-   /* Inicio estilos resumen orden */
+
+  /* Inicio estilos resumen orden */
   .list-group-orden {
     margin-top: 1.5em;
     list-style: none;
@@ -182,8 +182,8 @@
     margin-bottom: 1em;
   }
   
-  
-  
+
+
 
 /* responsivo */
 @media (min-width: 950px) {
@@ -245,8 +245,8 @@
     .how-list {
         line-height: 2em;
     }
-    
-/* inicio estilos ver libros */
+
+   /* inicio estilos ver libros */
   .see-book {
     display: flex;
     flex-direction: row;
@@ -254,8 +254,8 @@
     margin-top: 5em;
     gap: 5em;
   }
-  
- /* Inicio estilos resumen orden */
+
+  /* Inicio estilos resumen orden */
   .resume-orden {
     width: 100%;
     display: flex;

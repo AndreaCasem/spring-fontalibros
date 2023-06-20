@@ -39,15 +39,15 @@
             <div class="resume-orden">
                 <div>
                     <h4 class="publish-tittle">Datos de la orden</h4>
-                    <p>Nombre: </p>
-                    <p>Correo: </p>
-                    <p>Dirección:</p>
+                    <p th:text=" 'Nombre: ' + ${usuario.nombre}">Nombre: </p>
+                    <p th:text=" 'Correo: ' + ${usuario.correo}">Correo: </p>
+                    <p th:text=" 'Dirección: ' + ${usuario.direccion}">Dirección:</p>
                     <h4 class="publish-tittle">libros</h4>
                 </div>
                 <div class="resume-orden-total">
                     <h3>Resumen Orden</h3>
                     <ul class="list-group-orden">
-                        <li class="list-group-orden-item"><p>Total:</p></li>
+                        <li class="list-group-orden-item"><p th:text=" 'Total: ' + ${orden.total}"></p></li>
                         <a href="#" class="btn-aux">Generar orden</a>
                     </ul>
                 </div>
@@ -64,11 +64,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td ></td>
-                    <td ></td>
-                    <td ></td>
-                    <td ></td>
+                <tr th:each="dtorden:${cart}">
+                    <td th:text="${dtorden.nombre}"></td>
+                    <td th:text="${dtorden.cantidad}"></td>
+                    <td th:text="${dtorden.precio}"></td>
+                    <td th:text="${dtorden.total}"></td>
                 </tr>       
                 </tbody>
             </table>

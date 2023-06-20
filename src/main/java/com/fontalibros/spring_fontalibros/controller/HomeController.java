@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fontalibros.spring_fontalibros.model.DetalleOrden;
 import com.fontalibros.spring_fontalibros.model.Libro;
 import com.fontalibros.spring_fontalibros.model.Orden;
+import com.fontalibros.spring_fontalibros.model.Usuario;
+import com.fontalibros.spring_fontalibros.service.IUsuarioService;
 import com.fontalibros.spring_fontalibros.service.LibroService;
 
 @Controller
@@ -28,6 +30,9 @@ public class HomeController {
 	
 	@Autowired
 	private LibroService libroService;
+	
+	@Autowired
+	private IUsuarioService usuarioService;
 	
 	// Para almacenar los detalles de la orden, una orden puede tener uno o varios detalles
 	List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -152,9 +157,15 @@ public class HomeController {
 	}
 	
 	
-	// Metodo para redirigir a la vista resumen orden desde carrito de compra
+	// Metodo para redirigir la informacion a la vista resumen orden desde carrito de compra
 	@GetMapping("/orden")
-	public String orden() {
+	public String orden(Model model) {
+		Usuario usuario = usuarioService.findById(1).get();
+		
+		model.addAttribute("cart", detalles);
+		model.addAttribute("orden", orden);
+		model.addAttribute("usuario", usuario);
+		
 		return "usuario/resumenOrden";
 	}
 	
