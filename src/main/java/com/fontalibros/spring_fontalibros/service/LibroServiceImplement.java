@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fontalibros.spring_fontalibros.model.Libro;
-import com.fontalibros.spring_fontalibros.repository.LibroRepository;
+import com.fontalibros.spring_fontalibros.repository.ILibroRepository;
 
 /*
  Definimos la implementación del servicio LibroServiceImplement
@@ -22,7 +22,7 @@ public class LibroServiceImplement implements LibroService {
 	 cuando se crea una instancia de LibroServiceImplement.
 	*/
 	@Autowired
-	private LibroRepository libroRepository;
+	private ILibroRepository libroRepository;
 	
 	/*
 	 El metodo save utiliza el metodo save de la interfaz LibroRepository 

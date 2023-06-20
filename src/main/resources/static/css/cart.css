@@ -83,18 +83,23 @@
     justify-content: space-between;
 }
 
-.container-buy a {
-    color: var(--black);
-    text-decoration: underline;
-}
-
 .total-cart .container-buy {
     display: flex;
-    flex-direction: column-reverse;
     gap: 3em;
     text-align: center;
     margin: 2em 0;
 }
+
+.btn-order {
+   background-color: var(--lightBlue);
+   color: #FFFFFF;
+   padding: 10px 20px;
+   border: none;
+   border-radius: .3em;
+   text-decoration: none;
+}
+
+
 
 @media (min-width: 950px) {
     .container-shopping-cart {
@@ -110,8 +115,5 @@
         gap: 1em;
     }
 
-    .container-buy a {
-        color: var(--black);
-        text-decoration: underline;
-    }
+
 }

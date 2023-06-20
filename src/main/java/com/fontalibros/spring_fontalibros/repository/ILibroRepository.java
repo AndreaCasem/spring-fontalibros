@@ -11,6 +11,6 @@ import com.fontalibros.spring_fontalibros.model.Libro;
  un identificador de tipo Integer
 */
 @Repository
-public interface LibroRepository extends JpaRepository<Libro, Integer>{
+public interface ILibroRepository extends JpaRepository<Libro, Integer>{
 
 }
