@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -204,6 +206,23 @@ public class HomeController {
 		detalles.clear();
 		
 		return "redirect:/";
+	}
+	
+	// Metodo para buscar los libros
+	@PostMapping("/buscar")
+	public String buscarLibro(@RequestParam String search, Model model) {
+		log.info("Nombre del libro: {}", search);
+		
+		// Convertir la cadena de búsqueda a minúsculas para que no distinga entre mayúsculas y minúsculas
+		String searchLowercase = search.toLowerCase();
+		
+		// Obtenemos una lista de todos los libros y se hace el filtro bien sea por nombre o autor del libro pasando en el contains la variable String search
+		List<Libro> libros = libroService.findAll().stream().filter(l -> l.getTitulo().toLowerCase().contains(searchLowercase) || l.getAutor().toLowerCase().contains(searchLowercase)).collect(Collectors.toList());
+		
+		// Aqui utilizamos la implementacion de la lista de libros utilizada en la pagina de home y libros ${libros}
+		model.addAttribute("libros", libros);  
+		
+		return "usuario/libros";
 	}
 	
 }

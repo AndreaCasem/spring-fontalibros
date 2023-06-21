@@ -6,7 +6,7 @@
             <a th:href="@{/}" class="logo">
                 <img src="/images/logo-header.png" width="200px" alt="logo Fontalibros">
             </a>
-            <form class="form" action="">
+            <form class="form" method="post" th:action="@{/buscar}">
                 <input class="input" name="search" type="text" placeholder="Buscar por título o autor">
                 <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
