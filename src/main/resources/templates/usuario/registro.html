@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontalibros</title>
+    <!-- Generic styles -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <!-- style header -->
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <!-- style main -->
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!-- style forms -->
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+    <!-- style books -->
+    <link rel="stylesheet" th:href="@{/css/books.css}">
+    <!-- style cart -->
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <!-- style footer -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon1.png}" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="body-container-form">
+    <div class="main" id="main">
+        <div class="container-form-signup ">
+            <div class="form-container-login" id="form-container-signup">
+                <!-- <i class="fa-solid fa-xmark form-close" id="form-close"></i> -->
+                <a th:href="@{/}" class="form-close"><i class="fa-solid fa-xmark " id="form-close"></i></a>
+                <!-- formulario registro -->
+                <div class="forms signup-form">
+                    <form method="post" th:action="@{/usuario/save}">
+                        <h2>Registrarse</h2>
+                        <div class="input-container">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" class="inputex" autocomplete="off" required>
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu apellido" class="inputex" autocomplete="off" required>
+                            <label for="documento">Documento de identidad:</label>
+                            <input type="number" name="documento" id="documento" placeholder="Ingresa tu número de identidad" class="inputex" autocomplete="off" required>
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" name="correo" id="correo" placeholder="Ingresa tu correo electrónico" class="inputex" autocomplete="off" required>
+                            <label for="password">Contraseña:</label>
+                            <div class="input-password">
+                                <span class="password"><i class="fa-regular fa-eye-slash"></i></span>
+                                <input type="password" name="password" id="password" placeholder="Crea una Contraseña" autocomplete="off" required>
+                                <!-- <i class="fa-regular fa-eye password-hide"></i> -->
+                            </div>
+                            <label for="password">Cofirmar contraseña:</label>
+                            <div class="input-password">
+                                <span class="password"><i class="fa-regular fa-eye-slash"></i></span>
+                                <input type="password" name="password" id="password-confirm" placeholder="Confirma tu contraseña" autocomplete="off" required>
+                                <!-- <i class="fa-regular fa-eye password-hide"></i> -->
+                            </div>
+                            <label for="telefono">Teléfono:</label>
+                            <input type="number" name="telefono" id="telefono" placeholder="+57 | Ingresa tu número de telefono" class="inputex" autocomplete="off" required>
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu dirección" class="inputex" autocomplete="off" required>
+                            <input type="checkbox" name="aceptar" value="aceptar" class="agree">
+                            <label class="agree">Acepto los términos y condiciones</label>
+        
+        					<button type="submit" class="btn">Registrarme</button>
+                            <!-- <input type="Submit" value="Registrarme" class="btn" id="signup"></input> -->
+                        </div>
+                        
+                        <div class="option-user">
+                            <div class="option-register">
+                                <p href="#">¿Ya tienes una cuenta?</p>
+                                <a href="#">¡Inicia sesión!</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+     
+    <!-- Scripts -->
+    <script defer th:src="@{/Scripst/menu.js}"></script>
+    <script type="module" th:src="@{/Scripst/cart.js}"></script>
+    <script defer th:src="@{/Scripst/main.js}"></script> 
+</body>
+
+</html>

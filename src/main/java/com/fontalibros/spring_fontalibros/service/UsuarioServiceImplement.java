@@ -18,6 +18,12 @@ public class UsuarioServiceImplement implements IUsuarioService {
 	public Optional<Usuario> findById(Integer id) {
 		return usuarioRepository.findById(id);
 	}
+
+	// Guardando el objeto usuario
+	@Override
+	public Usuario save(Usuario usuario) {
+		return usuarioRepository.save(usuario);
+	}
 	
 	
 
