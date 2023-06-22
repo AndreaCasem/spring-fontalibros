@@ -9,6 +9,7 @@ public interface IUsuarioService {
 	// Guardar usuario
 	Usuario save (Usuario usuario);
 	
+	// Metodo para filtrar el correo para iniciar sesión
 	Optional<Usuario> findByCorreo(String correo);
 	
 }

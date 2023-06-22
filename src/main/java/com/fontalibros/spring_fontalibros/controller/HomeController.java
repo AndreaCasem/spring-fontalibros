@@ -27,6 +27,8 @@ import com.fontalibros.spring_fontalibros.service.IOrdenService;
 import com.fontalibros.spring_fontalibros.service.IUsuarioService;
 import com.fontalibros.spring_fontalibros.service.LibroService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -54,7 +56,9 @@ public class HomeController {
 	
 	
 	@GetMapping("")
-	public String home(Model model) {
+	public String home(Model model, HttpSession session) {
+		// Ver cuál es el id del usuario que está en una sesion
+		log.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 		
 		model.addAttribute("libros", libroService.findAll());
 		return "usuario/home";
@@ -102,7 +106,6 @@ public class HomeController {
 		}
 		
 
-		
 		sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
 		
 		orden.setTotal(sumaTotal);
@@ -171,8 +174,9 @@ public class HomeController {
 	
 	// Metodo para redirigir la informacion a la vista resumen orden desde carrito de compra
 	@GetMapping("/orden")
-	public String orden(Model model) {
-		Usuario usuario = usuarioService.findById(1).get();
+	public String orden(Model model, HttpSession session) {
+		// Obteniendo el usuario para la orden con la sesión que se guardó cuando el usuario se loguea
+		Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
 		
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", orden);
@@ -183,13 +187,13 @@ public class HomeController {
 	
 	// Metodo para guardar la orden
 	@GetMapping("/saveOrder")
-	public String saveOrder() {
+	public String saveOrder(HttpSession session) {
 		Date fechaCreacion = new Date();
 		orden.setFechaCreacion(fechaCreacion);
 		orden.setNumero(ordenService.generarNumeroOrden());
 		
-		// Usuario que está haciendo la orden
-		Usuario usuario = usuarioService.findById(1).get();
+		// Usuario que inició sesión que está haciendo la orden
+		Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
 		
 		orden.setUsuario(usuario);
 		ordenService.save(orden);

@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fontalibros.spring_fontalibros.model.Libro;
 import com.fontalibros.spring_fontalibros.model.Usuario;
+import com.fontalibros.spring_fontalibros.service.IUsuarioService;
 import com.fontalibros.spring_fontalibros.service.LibroService;
+
+import jakarta.servlet.http.HttpSession;
 
 
 
@@ -33,6 +36,9 @@ public class LibroController {
 	@Autowired
 	private LibroService libroService;
 	
+	@Autowired
+	private IUsuarioService usuarioService;
+	
 	
 	// Recibe la solicitud Get a la ruta base /libros y muestra la vista libros/show
 	// Pasamos como parametro un objeto de tipo model que nos va a llevar informacion del backend a la vista
@@ -51,9 +57,12 @@ public class LibroController {
 	// Hacemos una peticion directamente al controlador libros para que nos cargue la vista show
 	
 	@PostMapping("/save")
-	public String save(Libro libro) {
+	public String save(Libro libro, HttpSession session) {
 		LOGGER.info("este es el objeto libro de la vista {}",libro);
-		Usuario u = new Usuario(1, "", "", "", "", "", "", "", "");
+		
+		// Cuando el administrador inicie sesión 
+		Usuario u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString() )).get();
+		
 		libro.setUsuario(u);
 		libroService.save(libro);
 		return "redirect:/libros";
