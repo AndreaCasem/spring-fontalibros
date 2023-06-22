@@ -11,8 +11,8 @@
                 <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             <ul class="account account-modal" id="account">
-                <li><a href="#" class="login" id="login-btn">Iniciar sesión</a></li>
-                <li><a href="#" class="register btn" id="register-btn">Registrarse</a></li>
+                <li><a th:href="@{/usuario/login}" class="login" id="login-btn">Iniciar sesión</a></li>
+                <li><a th:href="@{/usuario/registro}" class="register btn" id="register-btn">Registrarse</a></li>
             </ul>
             <a th:href="@{/getCart}" class="btn-shopping-cart" id="btn-shopping-cart"><i class="fa-solid fa-cart-shopping"></i></a>
         

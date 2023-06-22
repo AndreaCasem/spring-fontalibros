@@ -36,4 +36,10 @@ public class UsuarioController {
 		
 		return "redirect:/";
 	}
+	
+	// Metodo para mostrar la vista de login
+	@GetMapping("login")
+	public String login() {
+		return "usuario/login";
+	}
 }

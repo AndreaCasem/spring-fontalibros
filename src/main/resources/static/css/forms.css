@@ -121,14 +121,15 @@ label {
     height: 100vh;
     position: fixed;
     top: 0;
-    right: 0; 
-    background-color: rgba(51,51,51,0.5);
+    right: 0;
+    background-color: rgba(51,51,51,0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .body-container-form {
+	padding: 10em;
     background-color: rgba(51,51,51,0.5);
 }
 

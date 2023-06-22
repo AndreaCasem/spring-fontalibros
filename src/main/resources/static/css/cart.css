@@ -85,8 +85,10 @@
 
 .total-cart .container-buy {
     display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     gap: 3em;
-    text-align: center;
+    /*text-align: center;*/
     margin: 2em 0;
 }
 
@@ -99,6 +101,9 @@
    text-decoration: none;
 }
 
+.btn-more-books {
+	color: var(--Black);
+}
 
 
 @media (min-width: 950px) {
