@@ -35,19 +35,19 @@
                 <a th:href="@{/}" class="form-close"><i class="fa-solid fa-xmark " id="form-close"></i></a>
                 <!-- formulario inicio sesion -->
                 <div class="forms login-form">
-                    <form action="">
+                    <form th:action="@{/usuario/acceder}" method="post">
                         <i class="fa-solid fa-user"></i>
                         <h3>Iniciar Sesión</h3>
                         <div class="input-container">
-                            <label for="email">Correo electrónico:</label>
-                            <input type="email" name="email" id="email" placeholder="Ingresa tu correo aquí" class="inputex" required>
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" name="correo" id="correo" placeholder="Ingresa tu correo aquí" class="inputex" autocomplete="off"  required>
                             <label for="password">Contraseña:</label>
                             <div class="input-password">
                                 <span class="password"><i class="fa-regular fa-eye-slash"></i></span>
-                                <input type="password" name="password" id="password" placeholder="Ingresa tu Contraseña" required>
+                                <input type="password" name="password" id="password" placeholder="Ingresa tu Contraseña" autocomplete="off"  required>
                                 <!-- <i class="fa-regular fa-eye password-hide"></i> -->
                             </div>
-                            <input type="Submit" value="Iniciar sesión" class="btn" id="login"></input>
+                            <button type="submit" class="btn">Iniciar sesión</button>
                         </div>
                         
                         <div class="option-user">
