@@ -12,16 +12,20 @@
 	                <input class="input" name="search" type="text" placeholder="Buscar por título o autor">
 	                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
 	            </form>
-	            <div class="dropdown">
-	                <button onclick="myFunction()" class="btn dropbtn">Admin</button>
-	                <div id="myDropdown" class="dropdown-content">
-					<!-- Redireccionando al controlador Libros -->
-	                  <a th:href="@{/libros}">Libros</a>
-	                  <a href="#">Órdenes</a>
-	                  <a href="#">Usuarios</a>
-	                  <a href="#">Salir</a>
-	                </div>
-	              </div>
+	            <ul class="account account-modal" id="account">
+	                <li><a href="#" class="login" id="login-btn"></a></li>
+	                <div class="dropdown">
+		                <button onclick="myFunction()" class="btn dropbtn">Admin</button>
+		                <div id="myDropdown" class="dropdown-content">
+						<!-- Redireccionando al controlador Libros -->
+		                  <a th:href="@{/libros}">Libros</a>
+		                  <a href="#">Órdenes</a>
+		                  <a href="#">Usuarios</a>
+		                  <a href="#">Cerrar sesión</a>
+		                </div>
+	             	</div>
+            	</ul>
+	            
 	        </header>
     	</div>
 	</div>

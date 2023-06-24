@@ -61,6 +61,10 @@ public class HomeController {
 		log.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 		
 		model.addAttribute("libros", libroService.findAll());
+		
+		// session, indicamos si el usuario inició sesión, así mostramos la vista de usuario logueado
+		model.addAttribute("sesion", session.getAttribute("idusuario"));
+		
 		return "usuario/home";
 	}
 
@@ -145,9 +149,12 @@ public class HomeController {
 	
 	// Accediendo al carrito de compra desde cualquier parte de la página
 	@GetMapping("/getCart")
-	public String getCart(Model model) {
+	public String getCart(Model model, HttpSession session) {
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", orden);
+		
+		// Sesion: el carrito de compra se muestra diferente cuando el usuario inicia sesión
+		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		
 		return "/usuario/carrito";
 	}
