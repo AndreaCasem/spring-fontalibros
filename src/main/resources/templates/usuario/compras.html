@@ -40,50 +40,35 @@
   	<!-- Fin de header logueado-->
 
     <main class="main" id="main">
-        <!-- Inicio de section introduccion -->
-        <section class="home" id="home">
-            <div class="intro">
-                <div class="intro-text">
-                    <h1>Compra o vende <span class="span-word">libros</span> de segunda mano</h1>
-                    <p class="para">Dale la oportunidad a un libro de segunda mano o convierte en dinero aquellos que ya no necesites.</p>
-                    <p>¡Te conectamos con ellos!</p>
-                    <a class="btn-aux button" th:href="@{/comoFunciona}">Leer más</a>
-                </div>
-                <figure class="intro-img">
-                    <img src="/images/Reading-book.svg" alt="Leyendo libro">
-                </figure>
-            </div>
-            
-             <!-- Inicio de section ultimos añadidos -->
-            <div  class="last-added" id="last-added">
-                <h2>Últimos añadidos</h2>
-                <div class="last-book-container" id="last-book-container" >
-                    <div class="card" id="card" th:each="libro: ${libros}">
-                        <figure class="img-book">
-                            <img src="https://picsum.photos/400/310" alt="libro">
-                        </figure>
-                        <h3 class="book-title" id="book-title" th:text="${libro.titulo}"></h3>
-                        <p class="author" id="author" th:text="${libro.autor}"></p>
-                        <p class="status" id="status" th:text="${libro.calidad}"></p>
-                        <span class="span-word price" id="price" th:text="${libro.precio}"></span>
-                        <div class="btn-link-container">
-							<a th:href="@{/libroHome/{id} (id = ${libro.id})}" class="btn button" id="btn-link">Ver libro</a>
-						</div>
-                        
-                        <!--<button class="btn-add-to-cart btn" id="btn-add-to-car">Ver libro</button>-->
-                    </div>           
-                </div>
-            </div>
-            <!-- Fin de section ultimos añadidos -->
-
-        </section>
-        <!-- Fin de section introduccion-->
+       <h3>Fontalibros | <span class="span-word">Mis compras</span></h3>
+       <div class="publish-container">
+            <h4 class="publish-tittle">Compras</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>No. de orden</th>
+                    <th>Fecha</th>
+                    <th>Valor</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>      
+                <tr>
+                    <td ></td>
+                    <td ></td>
+                    <td ></td>
+                    <td><a  class="btn-warning" href="">Ver detalle</a></td>
+                </tr>       
+                </tbody>
+            </table>
+       </div>
     </main>
-
-     <!-- Inicio de footer-->
-     <div th:replace="~{/usuario/template_usuario.html :: footer}"></div>
-    <!-- Fin de footer--> 
     
+	 <!-- Inicio de footer-->
+     <div th:replace="~{/usuario/template_usuario.html :: footer}"></div>
+    <!-- Fin de footer-->
+     
+     
     <!-- Scripts -->
     <script defer th:src="@{/Scripst/menu.js}"></script>
     <script type="module" th:src="@{/Scripst/cart.js}"></script>

@@ -29,9 +29,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- Inicio de header -->
-    <div th:replace="/usuario/template_usuario.html :: header"></div>
-    <!-- Fin de header -->
+    <!-- Inicio de header por defecto -->
+    <!-- Si el usuario no ha iniciado sesion -->
+    <div th:replace="/usuario/template_usuario.html :: header" th:if="${sesion==null}"></div>
+    <!-- Fin de header por defecto-->
+    
+    <!-- Inicio de header logueado -->
+    <!-- Si el usuario inició sesion se muestra la vista de usuario logueado-->
+    <div th:replace="/usuario/template_usuario.html :: header-user" th:unless="${sesion==null}"></div>
+  	<!-- Fin de header logueado-->
 
 
     <main class="main" id="main">

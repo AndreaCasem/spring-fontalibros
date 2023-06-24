@@ -51,10 +51,10 @@
             <ul class="account account-modal" id="account">
                 <li><a href="#" class="login" id="login-btn"></a></li>
                 <div class="dropdown">
-                    <button onclick="myFunction()" class="btn dropbtn">Usuario</button>
+                    <button onclick="myFunction()" class="dropbtn">Usuario</button>
                     <div id="myDropdown" class="dropdown-content">
-                      <a href="#">Mis compras</a>
-                      <a href="#">Cerrar sesión</a>
+                      <a th:href="@{/usuario/compras}">Mis compras</a>
+                      <a href="#">Salir</a>
                     </div>
                 </div>
             </ul>
