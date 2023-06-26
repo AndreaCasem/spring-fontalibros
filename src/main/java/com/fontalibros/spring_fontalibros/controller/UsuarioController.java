@@ -112,4 +112,11 @@ public class UsuarioController {
 		
 		return "usuario/detalleCompra";
 	}
+	
+	// Método para cerrar sesión
+	@GetMapping("/cerrar")
+	public String cerrarSesion(HttpSession session) {
+		session.removeAttribute("idusuario");
+		return "redirect:/";
+	}
 }

@@ -36,7 +36,7 @@
     
     <!-- Inicio de header logueado -->
     <!-- Si el usuario inició sesion se muestra la vista de usuario logueado-->
-    <div th:replace="~{/usuario/template_usuario.html :: header-user}" th:unless="${sesion!==null}"></div>
+    <div th:replace="~{/usuario/template_usuario.html :: header-user}" th:unless="${sesion ==null}"></div>
   	<!-- Fin de header logueado-->
 
     <main class="main" id="main">
