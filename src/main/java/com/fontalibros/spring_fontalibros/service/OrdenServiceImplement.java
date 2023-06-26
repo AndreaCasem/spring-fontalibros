@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fontalibros.spring_fontalibros.model.Orden;
+import com.fontalibros.spring_fontalibros.model.Usuario;
 import com.fontalibros.spring_fontalibros.repository.IOrdenRepository;
 
 // Clase de servicio para la orden
@@ -66,6 +67,12 @@ public class OrdenServiceImplement implements IOrdenService {
 		
 		return numeroConcatenado; // Nos devuelve el String con el secuencial del numero de la orden
 		
+	}
+
+	// Obteniendo la lista de ordenes realizadas por el usuario logueado para la vista de compras
+	@Override
+	public List<Orden> findByUsuario(Usuario usuario) {
+		return ordenRepository.findByUsuario(usuario);
 	}
 
 }

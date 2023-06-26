@@ -1,5 +1,6 @@
 package com.fontalibros.spring_fontalibros.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fontalibros.spring_fontalibros.model.Orden;
 import com.fontalibros.spring_fontalibros.model.Usuario;
+import com.fontalibros.spring_fontalibros.service.IOrdenService;
 import com.fontalibros.spring_fontalibros.service.IUsuarioService;
 
 import jakarta.servlet.http.HttpSession;
@@ -24,6 +27,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
+	
+	@Autowired
+	private IOrdenService ordenService;
 	
 	// Metodo para mostrar el formulario de registro /usuario/registro
 	@GetMapping("/registro")
@@ -78,6 +84,14 @@ public class UsuarioController {
 	@GetMapping("/compras")
 	public String obtenerCompras(Model model,HttpSession session) {
 		model.addAttribute("sesion", session.getAttribute("idusuario"));
+		
+		// Obteniendo el id del usuario que realiza la orden
+		Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+		
+		// Definimos una lista para recibir las ordenes hechas por el usuario
+		List<Orden> ordenes = ordenService.findByUsuario(usuario);
+		
+		model.addAttribute("ordenes", ordenes);
 		
 		return "usuario/compras";
 	}
