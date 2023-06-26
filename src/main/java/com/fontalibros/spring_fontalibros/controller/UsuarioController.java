@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -94,5 +95,21 @@ public class UsuarioController {
 		model.addAttribute("ordenes", ordenes);
 		
 		return "usuario/compras";
+	}
+	
+	// Método para obtener la información de los detalles de la compra/orden, el id nos indica cuáles detalles pertenecen a una orden
+	@GetMapping("/detalle/{id}")
+	public String detalleCompr(@PathVariable Integer id, HttpSession session, Model model) {
+		logger.info("id de la orden: {}", id);
+		
+		// Obtener la orden por su id
+		Optional<Orden> orden = ordenService.findById(id);
+		
+		model.addAttribute("detalles", orden.get().getDetalle());
+		
+		// Session
+		model.addAttribute("sesion", session.getAttribute("idusuario"));
+		
+		return "usuario/detalleCompra";
 	}
 }

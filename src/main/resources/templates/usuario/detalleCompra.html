@@ -40,24 +40,24 @@
   	<!-- Fin de header logueado-->
 
     <main class="main" id="main">
-       <h3>Fontalibros | <span class="span-word">Mis compras</span></h3>
+       <h3>Fontalibros | <span class="span-word">Detalle de mi compra</span></h3>
        <div class="publish-container">
-            <h4 class="publish-tittle">Compras</h4>
+            <h4 class="publish-tittle">Detalles</h4>
             <table class="table">
                 <thead>
                 <tr>
-                    <th>No. de orden</th>
-                    <th>Fecha</th>
-                    <th>Valor</th>
-                    <th>Acción</th>
+                    <th>Cantidad</th>
+                    <th>Libro</th>
+                    <th>Precio</th>
+                    <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>      
-                <tr th:each="orden: ${ordenes}">
-                    <td th:text="${orden.numero}"></td>
-                    <td th:text="${orden.fechaCreacion}"></td>
-                    <td th:text="${orden.total}"></td>
-                    <td><a  class="btn-warning" th:href="@{/usuario/detalle/{id} (id = ${orden.id})}">Ver detalle</a></td>
+                <tr th:each="detalle: ${detalles}">
+                    <td th:text="${detalle.cantidad}"></td>
+                    <td th:text="${detalle.nombre}"></td>
+                    <td th:text="${detalle.precio}"></td>
+                    <td th:text="${detalle.total}"></td>
                 </tr>       
                 </tbody>
             </table>
