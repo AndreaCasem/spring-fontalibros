@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontalibros</title>
+    <!-- Generic styles -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <!-- style header -->
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <!-- style main -->
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!-- style forms -->
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+    <!-- style books -->
+    <link rel="stylesheet" th:href="@{/css/books.css}">
+    <!-- style cart -->
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <!-- style footer -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon1.png}" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+     <!-- Inicio de header -->
+    	<div th:replace="/administrador/template_admin.html :: header"></div>
+
+  		<!-- <div th:include="/administrador/template_admin.html::header"></div> -->
+  		 
+    <!-- Fin de header -->
+
+    <main class="main" id="main">
+       <h3>Fontalibros | <span class="span-word">Ordenes pendientes</span></h3>
+       <div class="publish-container">
+            <h4 class="publish-tittle">Orden</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>No. de orden</th>
+                    <th>Fecha</th>
+                    <th>Valor</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>      
+                <tr th:each="orden: ${ordenes}">
+                    <td th:text="${orden.numero}"></td>
+                    <td th:text="${orden.fechaCreacion}"></td>
+                    <td th:text="${orden.total}"></td>
+                    <td><a  class="btn-warning" href="">Ver detalle</a></td>
+                </tr>       
+                </tbody>
+            </table>
+       </div>
+    </main>
+
+     <!-- Inicio de footer-->
+     	<div th:replace="/administrador/template_admin.html :: footer"></div>
+     	
+     	<!-- <div th:include="/administrador/template_admin.html::footer"></div> -->
+
+    <!-- Fin de footer--> 
+    
+    <!-- Scripts -->
+    <script defer th:src="@{/Scripst/menu.js}"></script>
+    <script type="module" th:src="@{/Scripst/cart.js}"></script>
+    <script defer th:src="@{/Scripst/main.js}"></script> 
+</body>
+</html>
