@@ -28,43 +28,49 @@
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <!-- Inicio de header por defecto -->
-    <!-- Si el usuario no ha iniciado sesion -->
-    <div th:replace="/usuario/template_usuario.html :: header"></div>
-    <!-- Fin de header por defecto-->
-    
-    <!-- Inicio de header logueado -->
-    <!-- Si el usuario inició sesion se muestra la vista de usuario logueado-->
-    <div th:replace="/usuario/template_usuario.html :: header-user" th:unless="${sesion==null}"></div>
-  	<!-- Fin de header logueado-->
+    <!-- Inicio de header -->
+    	<div th:replace="/administrador/template_admin.html :: header"></div>
+
+  		<!-- <div th:include="/administrador/template_admin.html::header"></div> -->
+  		 
+    <!-- Fin de header -->
 
     <main class="main" id="main">
-        <section class="books">
-            <div class="last-book-container " id="list-book-container">
-                <div class="card" id="card" th:each="libro: ${libros}">
-                        <figure class="img-book">
-                            <img src="https://picsum.photos/400/310" alt="libro">
-                        </figure>
-                        <h3 class="book-title" id="book-title" th:text="${libro.titulo}"></h3>
-                        <p class="author" id="author" th:text="${libro.autor}"></p>
-                        <p class="status" id="status" th:text="${libro.calidad}"></p>
-                        <span class="span-word price" id="price" th:text="${libro.precio}"></span>
-                        <div class="btn-link-container">
-							<a th:href="@{/libroHome/{id} (id = ${libro.id})}" class="btn button" id="btn-link">Ver libro</a>
-						</div>
-               </div> 
-            </div>
-        </section>
+       <h3>Fontalibros | <span class="span-word">Ver usuarios</span></h3>
+       <div class="publish-container">
+            <h4 class="publish-tittle">Usuarios</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Dirección</th>
+                </tr>
+                </thead>
+                <tbody>
+					<!-- Utilizamos Thymeleaf para mostrar los datos en la tabla, libros es la variable que definimos como atributo en el objeto model de la clase LibroController -->
+                <tr th:each="usuario: ${usuarios}">
+                    <td th:text="${usuario.nombre}"></td>
+                    <td th:text="${usuario.correo}"></td>
+                    <td th:text="${usuario.direccion}"></td>
+                </tr>       
+                </tbody>
+            </table>
+       </div>
     </main>
 
      <!-- Inicio de footer-->
-     <div th:replace="/usuario/template_usuario.html :: footer"></div>
-    <!-- Fin de footer--> 
+     	<div th:replace="/administrador/template_admin.html :: footer"></div>
+     	
+     	<!-- <div th:include="/administrador/template_admin.html::footer"></div> -->
 
-     <!-- Scripts -->
+    <!-- Fin de footer--> 
+    
+    <!-- Scripts -->
     <script defer th:src="@{/Scripst/menu.js}"></script>
     <script type="module" th:src="@{/Scripst/cart.js}"></script>
-    <script defer th:src="@{/Scripst/main.js}"></script>  
-
+    <script defer th:src="@{/Scripst/main.js}"></script> 
 </body>
+</html>

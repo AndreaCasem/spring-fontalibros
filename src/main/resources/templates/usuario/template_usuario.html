@@ -1,6 +1,5 @@
 <!-- Inicio de header -->
-<div th:fragment="header">
-	<div class="wrapper">
+	<div class="wrapper" th:fragment="header">
         <header class="header" id="header">
             <span class="navbar" id="btn-menu"><i class="fa-solid fa-bars"></i></span>
             <a th:href="@{/}" class="logo">
@@ -33,53 +32,8 @@
             </ul>
         </nav>       
     </div>
-</div>
-<!-- Fin de header -->
 
-<!-- Inicio de header logueado-->
-<div th:fragment="header-user">
-	<div class="wrapper">
-        <header class="header" id="header">
-            <span class="navbar" id="btn-menu"><i class="fa-solid fa-bars"></i></span>
-            <a th:href="@{/}" class="logo">
-                <img src="/images/logo-header.png" width="200px" alt="logo Fontalibros">
-            </a>
-            <form class="form" method="post" th:action="@{/buscar}">
-                <input class="input" name="search" type="text" placeholder="Buscar por título o autor" autocomplete="off">
-                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-            <ul class="account account-modal" id="account">
-                <li><a href="#" class="login" id="login-btn"></a></li>
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">Usuario</button>
-                    <div id="myDropdown" class="dropdown-content">
-                      <a th:href="@{/usuario/compras}">Mis compras</a>
-                      <a th:href="@{/usuario/cerrar}">Salir</a>
-                    </div>
-                </div>
-            </ul>
-            
-            <a th:href="@{/getCart}" class="btn-shopping-cart" id="btn-shopping-cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        
-        </header>
-              
-        <nav class="main-nav" id="main-nav">
-            <ul class="menu" id="menu">
-                <span class="navbar btn-close" id="btn-close"><i class="fa-solid fa-xmark"></i></span>
-                <li class="menu-item"><a th:href="@{/}" class="menu-link" id="home">Home</a></li>
-                <li class="menu-item"><a th:href="@{/comoFunciona}" class="menu-link">Cómo funciona</a></li>
-                <li class="menu-item container-submenu"><a th:href="@{/libro}" class="menu-link submenu-btn">Libros</a></li>
-                <li class="menu-item"><a th:href="@{/contacto}" class="menu-link">Contacto</a></li>
-                <!-- <li class="menu-item"><a href="/pages/venderLibro.html" class="menu-link" id="sell-book"><i class="fa-solid fa-book"></i> Vende tus libros</a></li> -->
-                <!-- <ul class="account-modal" id="account">
-                    <li><a href="#">Iniciar sesión</a></li>
-                    <li><a href="#">Registrarse</a></li>
-                </ul> -->
-            </ul>
-        </nav>       
-    </div>
-</div>
-<!-- Fin de header logueado-->
+<!-- Fin de header -->
 
 
 <div th:fragment="footer">

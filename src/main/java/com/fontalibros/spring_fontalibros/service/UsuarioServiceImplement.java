@@ -1,5 +1,6 @@
 package com.fontalibros.spring_fontalibros.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,16 @@ public class UsuarioServiceImplement implements IUsuarioService {
 		return usuarioRepository.save(usuario);
 	}
 
+	// Obtener usuario por medio del correo
 	@Override
 	public Optional<Usuario> findByCorreo(String correo) {
 		return usuarioRepository.findByCorreo(correo);
+	}
+
+	// Obtener todos los usuarios registrados
+	@Override
+	public List<Usuario> findAll() {
+		return usuarioRepository.findAll();
 	}
 	
 	

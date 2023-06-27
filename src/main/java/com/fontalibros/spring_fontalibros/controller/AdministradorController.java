@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fontalibros.spring_fontalibros.model.Libro;
+import com.fontalibros.spring_fontalibros.service.IUsuarioService;
 import com.fontalibros.spring_fontalibros.service.LibroService;
 
 /*
@@ -23,6 +24,9 @@ public class AdministradorController {
 	@Autowired
 	private LibroService libroService;
 	
+	@Autowired
+	private IUsuarioService usuarioService;
+	
 	@GetMapping("")
 	public String home(Model model) {
 		
@@ -30,5 +34,12 @@ public class AdministradorController {
 		model.addAttribute("libros", libros);
 		
 		return "administrador/home";
+	}
+	
+	// Metodo para obtener la lista de usuarios
+	@GetMapping("/usuarios")
+	public String usuarios(Model model) {
+		model.addAttribute("usuarios", usuarioService.findAll());
+		return "administrador/usuarios";
 	}
 }
