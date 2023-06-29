@@ -54,7 +54,7 @@ public class HomeController {
 	// Se crea este objeto y va a almacenar los datos de la orden
 	Orden orden = new Orden();
 	
-	
+	/*
 	@GetMapping("")
 	public String home(Model model, HttpSession session) {
 		// Ver cuál es el id del usuario que está en una sesion
@@ -65,6 +65,19 @@ public class HomeController {
 		// session, indicamos si el usuario inició sesión, así mostramos la vista de usuario logueado
 		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		
+		return "usuario/home";
+	}*/
+	
+	@GetMapping("")
+	public String home(Model model, HttpSession session) {
+		
+		log.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
+		
+		model.addAttribute("libros", libroService.findAll());
+		
+		//session
+		model.addAttribute("sesion", session.getAttribute("idusuario"));
+
 		return "usuario/home";
 	}
 
@@ -215,7 +228,7 @@ public class HomeController {
 		orden = new Orden();
 		detalles.clear();
 		
-		return "redirect:/";
+		return "usuario/libros";
 	}
 	
 	// Metodo para buscar los libros

@@ -32,6 +32,9 @@ public class UsuarioController {
 	@Autowired
 	private IOrdenService ordenService;
 	
+	// Encriptando contrasena
+	//BCryptPasswordEncoder passEncode = new BCryptPasswordEncoder();
+	
 	// Metodo para mostrar el formulario de registro /usuario/registro
 	@GetMapping("/registro")
 	public String crear() {
@@ -44,6 +47,7 @@ public class UsuarioController {
 		logger.info("Usuario registro: {}", usuario);
 		
 		usuario.setTipo("USER");
+		//usuario.setPassword(passEncode.encode(usuario.getPassword())); // Encriptar clave del usuario
 		usuarioService.save(usuario);
 		
 		return "redirect:/";
@@ -55,6 +59,30 @@ public class UsuarioController {
 		return "usuario/login";
 	}
 	
+
+	@PostMapping("/acceder")
+	public String acceder(Usuario usuario, HttpSession session) {
+		logger.info("Accesos : {}", usuario);
+		
+		Optional<Usuario> user=usuarioService.findByCorreo(usuario.getCorreo());
+		//logger.info("Usuario de db: {}", user.get());
+		
+		if (user.isPresent()) {
+			session.setAttribute("idusuario", user.get().getId());
+			
+			if (user.get().getTipo().equals("ADMIN")) {
+				return "redirect:/administrador";
+			}else {
+				return "usuario/homein";
+			}
+		}else {
+			logger.info("Usuario no existe");
+		}
+		
+		return "redirect:/";
+	}
+	
+	/*
 	// Metodo para acceder sin Spring Security de momento
 	@PostMapping("/acceder")
 	public String acceder(Usuario usuario, HttpSession session) {
@@ -79,7 +107,7 @@ public class UsuarioController {
 		}
 		
 		return "redirect:/";
-	}
+	}*/
 	
 	// Método para obtener la información de la compra
 	@GetMapping("/compras")
