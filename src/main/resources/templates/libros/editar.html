@@ -58,7 +58,8 @@
 			            <option value="BUENO">bueno</option>
 			            <option value="MUY_BUENO">Muy bueno</option>
 			        </select>
-			        
+			        <label for="cantidad">Cantidad:</label>
+			        <input type="number" name="cantidad" id="cantidad" class="inputex" required>
 			        <label for="precio">Precio:</label>
 			        <input type="number" name="precio" id="precio" class="inputex" required th:value="${libro.precio}">
 			        <button type="submit" class="btn">Guardar</button>

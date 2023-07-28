@@ -2,7 +2,6 @@ package com.fontalibros.spring_fontalibros.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -159,7 +158,7 @@ public class HomeController {
 		
 		return "usuario/carrito";
 	}
-	
+
 	// Accediendo al carrito de compra desde cualquier parte de la página
 	@GetMapping("/getCart")
 	public String getCart(Model model, HttpSession session) {
@@ -247,5 +246,7 @@ public class HomeController {
 		
 		return "usuario/libros";
 	}
+	
+	
 	
 }
