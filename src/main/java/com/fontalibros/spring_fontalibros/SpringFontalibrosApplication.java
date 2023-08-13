@@ -7,6 +7,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 public class SpringFontalibrosApplication {
+	
+	public String PORT= System.getenv("PORT");
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringFontalibrosApplication.class, args);
