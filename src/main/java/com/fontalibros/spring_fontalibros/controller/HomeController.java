@@ -179,7 +179,6 @@ public class HomeController {
 		return "/usuario/libros";
 	}
 	
-	
 	@GetMapping("/comoFunciona")
 	public String showComoFunciona(Model model) {
 		return "/usuario/comoFunciona";
@@ -188,6 +187,12 @@ public class HomeController {
 	@GetMapping("/contacto")
 	public String showContacto(Model model) {
 		return "/usuario/contacto";
+	}
+	
+	
+	@GetMapping("/homein")
+	public String showHome(Model model) {
+		return "usuario/homein";
 	}
 	
 	

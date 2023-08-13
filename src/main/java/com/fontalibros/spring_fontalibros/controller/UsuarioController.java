@@ -79,7 +79,7 @@ public class UsuarioController {
 			logger.info("Usuario no existe");
 		}
 		
-		return "redirect:/";
+		return "usuario/homein";
 	}
 	
 	/*
